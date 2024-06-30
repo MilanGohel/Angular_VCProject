@@ -43,7 +43,7 @@ export class UpdateMissionComponent implements OnInit {
           cityId: ['', Validators.compose([Validators.required])],
           startDate: ['', Validators.compose([Validators.required])],
           endDate: ['', Validators.compose([Validators.required])],
-          totalSheets: [''],
+          totalSheets: ['', Validators.compose([Validators.required])],
           missionThemeId: ['', Validators.compose([Validators.required])],
           missionSkillId: ['', Validators.compose([Validators.required])],
           missionImages: [''],
@@ -162,7 +162,7 @@ export class UpdateMissionComponent implements OnInit {
   get missionThemeId() { return this.editMissionForm.get('missionThemeId') as FormControl; }
   get missionSkillId() { return this.editMissionForm.get('missionSkillId') as FormControl; }
   get missionImages() { return this.editMissionForm.get('missionImages') as FormControl; }
-
+  get totalSheets() {return this.totalSheets.get('totalSheets') as FormControl;} 
 
   OnSelectedImage(event:any){
     const files = event.target.files;

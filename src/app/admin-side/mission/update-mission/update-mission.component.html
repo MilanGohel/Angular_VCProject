@@ -4,12 +4,30 @@
     <app-header></app-header>
       <div class="info">
         <div class="card">
-            <div class="card-header">
-              Update Mission
-            </div>
-            <div class="card-body">
-              <form [formGroup]="editMissionForm">
-                <div>
+          <div class="card-header">
+            Update Mission
+          </div>
+          <div class="card-body">
+            <form [formGroup]="editMissionForm">
+              <div>
+                <!-- TASK:5 Added Mission Title and Total Sheets -->
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label class="col-form-label">Mission Title</label>
+                    <input type="text" class="form-control" formControlName="missionTitle" placeholder="Enter mission title">
+                    <span class="text-danger" *ngIf="missionTitle.invalid && (missionTitle.touched || formValid)">
+                      Please Enter Mission Title
+                    </span>
+                  </div>
+                  <div class="col-sm-6">
+                    <label class="col-form-label">Total Sheets</label>
+                    <input type="number" class="form-control" formControlName="totalSheets" placeholder="Enter number of total sheets">
+                    <span class="text-danger" *ngIf="totalSheets.invalid && (totalSheets.touched || formValid)">
+                      Please Enter Mission Title
+                    </span>
+                  </div>
+
+                </div>
                     <div class="row"><input type="hidden" formControlName="id">
                       <div class="col-sm-6">
                           <label class="col-form-label">Country</label>
@@ -32,13 +50,6 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-sm-6">
-                      <label class="col-form-label">Mission Title</label>
-                      <input type="text" class="form-control" formControlName="missionTitle" placeholder="Enter mission title">
-                      <span class="text-danger" *ngIf="missionTitle.invalid && (missionTitle.touched || formValid)">
-                        Please Enter Mission Title
-                      </span>
-                    </div>
                     <div class="col-sm-6">
                       <label class="col-form-label">Mission Theme</label>
                       <select class="form-select" formControlName="missionThemeId">

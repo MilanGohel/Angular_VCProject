@@ -66,29 +66,33 @@
           <textarea class="form-control" rows="5" placeholder="Enter your comments..." formControlName="whyIVolunteer"></textarea>
         </div>
       </div>
-      <div class="col-sm-12 basicInfo">
-        <p>Address Information</p>
-        <hr style="width: 100%;margin-bottom: 2%;"/>
-        <div class="row">
-          <div class="form-group row">
-            <div class="col-sm-6">
-              <label class="col-form-label">Country<span class="text-success">*</span></label>
-              <select class="form-select" (change)="CityList($event)" formControlName="countryId">
-                <option *ngFor="let item of countryList" value="{{item.value}}">  {{item.text}}</option>
-              </select>
-              <span class="text-danger" *ngIf="userProfileForm.controls['countryId'].dirty && userProfileForm.hasError('required','countryId')">Please Select Country</span>
-            </div>
-            <div class="col-sm-6">
-              <label class="col-form-label">City<span class="text-success">*</span></label>
-              <select class="form-select" formControlName="cityId">
-                <option value="">Select City</option>
-                <option *ngFor="let item of cityList" value="{{item.value}}">{{item.text}}</option>
-              </select>
-              <span class="text-danger" *ngIf="userProfileForm.controls['cityId'].dirty && userProfileForm.hasError('required','cityId')">Please Select City</span>
+      <div class="container mt-4">
+        <div class="col-sm-12 basicInfo">
+          <p>Address Information</p>
+          <!-- TASK:4 Address Field -->
+          <hr style="width: 100%;margin-bottom: 2%;" />
+          <div class="row">
+            <div class="form-group row">
+              <div class="col-md-6">
+                <label for="country" class="col-form-label">Country<span class="text-success">*</span></label>
+                <select class="form-select" id="country" (change)="CityList($event)" formControlName="countryId">
+                  <option *ngFor="let item of countryList" value="{{item.value}}">{{item.text}}</option>
+                </select>
+                <span class="text-danger" *ngIf="userProfileForm.controls['countryId'].dirty && userProfileForm.hasError('required','countryId')">Please Select Country</span>
+              </div>
+              <div class="col-md-6">
+                <label for="city" class="col-form-label">City<span class="text-success">*</span></label>
+                <select class="form-select" id="city" formControlName="cityId">
+                  <option value="">Select City</option>
+                  <option *ngFor="let item of cityList" value="{{item.value}}">{{item.text}}</option>
+                </select>
+                <span class="text-danger" *ngIf="userProfileForm.controls['cityId'].dirty && userProfileForm.hasError('required','cityId')">Please Select City</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      
       <div class="col-sm-12 basicInfo">
         <p>Professional Information</p>
         <hr style="width: 100%;margin-bottom: 2%;"/>

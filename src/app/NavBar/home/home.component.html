@@ -44,17 +44,20 @@
               <div class="top-center" *ngIf="item.missionStatus == 'Closed'">CLOSED</div>
               <div class="top-center" *ngIf="item.missionApplyStatus == 'Applied'">APPLIED</div>
               <div class="top-center" *ngIf="item.missionApproveStatus === 'Approved'">APPROVED</div>
+              <!-- TASK:1 --- delete button from user view -->
+              <!-- <div class="top-center" *ngIf="item.missionStatus == 'Deleted'">DELETED</div> -->
               <div class="top-center" *ngIf="item.missionStatus != 'Closed' && item.missionApplyStatus != 'Applied' && item.missionApproveStatus !== 'Approved'">NEW</div>
               <div class="centered">{{item.missionThemeName}}</div>
-          </div>
-          <div class="card-body">
-            <p class="heading">{{item.missionTitle}}</p>
-            <p class="content"> {{item.missionOrganisationDetail}}</p>
-            <div class="row" style="margin: 14px;">
-              <div class="col-sm-7 contentdetail">
-                {{item.countryName}}
-              </div>
             </div>
+            <div class="card-body">
+              <p class="heading">{{item.missionTitle}}</p>
+              <p class="content"> {{item.missionOrganisationDetail}}</p>
+              <div class="row" style="margin: 14px;">
+                <div class="col-sm-7 contentdetail">
+                  {{item.countryName}}
+                </div>
+            </div>
+                <!-- TASK:4 --- TODO:Edited Button -->
             <div class="bordert">
                 <div class="text-center data py-3">
                   <p style="margin-top: -12px">From {{item.startDate | date: 'dd/MM/yyyy'}} until {{item.endDate | date: 'dd/MM/yyyy'}}</p>

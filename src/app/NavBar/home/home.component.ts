@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   shareOrInviteModal:any;
   missionData:any;
   appliedDate:any;
-  missionStatu:boolean = false;
+  missionStatus:boolean = false;
   favImag:string='assets/Img/heart1.png';
   favImag1:string='assets/Img/heart11.png';
   view:'grid' | 'list' = 'grid';

@@ -12,6 +12,15 @@
                 <div>
                   <div class="row">
                     <div class="col-sm-6">
+                      <label class="col-form-label">Mission Title</label>
+                      <input class="form-control" placeholder="Enter your Title" formControlName="missionDescription"/>
+                      <span class="text-danger" *ngIf="missionTitle.invalid && (missionTitle.touched || formValid)">
+                        Please Enter Mission Title
+                      </span>
+                    </div>
+                   </div>
+                  <div class="row">
+                    <div class="col-sm-6">
                         <label class="col-form-label">Country</label>
                         <select class="form-select" (change)="CityList($event)" formControlName="countryId">
                           <option *ngFor="let item of countryList" value="{{item.value}}">  {{item.text}}</option>
