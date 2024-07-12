@@ -29,7 +29,8 @@ export class UpdateUserComponent implements OnInit {
       phoneNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       emailAddress: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
-      confirmPassword: ['', Validators.required]
+      confirmPassword: ['', Validators.required],
+      address: ['', Validators.required]
     });
   
     // Extract user ID from route params
@@ -69,7 +70,11 @@ export class UpdateUserComponent implements OnInit {
     return this.updateForm.get('confirmPassword') as FormControl;
   }
   // Define getters for other form controls
-
+  get address(){
+    return this.address.get('address') as FormControl;
+  }
+  // Added address validators
+  
   FetchDetail(id:any)
   {
     this.service.GetUserById(id).subscribe((data:any)=>{
@@ -81,7 +86,8 @@ export class UpdateUserComponent implements OnInit {
               phoneNumber:[this.updateData.phoneNumber,Validators.compose([Validators.required,Validators.minLength(10),Validators.maxLength(10)])],
               emailAddress:[this.updateData.emailAddress,Validators.compose([Validators.required,Validators.email])],
               password:[this.updateData.password,Validators.compose([Validators.required,Validators.minLength(5),Validators.maxLength(10)])],
-              confirmPassword:[this.updateData.confirmPassword,Validators.compose([Validators.required])]
+              confirmPassword:[this.updateData.confirmPassword,Validators.compose([Validators.required])],
+              address: [this.updateData.address, Validators.compose([Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(100)])])]
           });
       });
   }

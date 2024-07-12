@@ -7,8 +7,8 @@ import {JwtHelperService} from  '@auth0/angular-jwt';
   providedIn: 'root'
 })
 export class AdminloginService {
-  apiUrl:string='http://localhost:56577/api/Login';
-  imageUrl:string='http://localhost:56577';
+  apiUrl:string='http://localhost:5275/api';
+  imageUrl:string='http://localhost:5275';
 
   currentUser : BehaviorSubject<any> = new BehaviorSubject(null);
   currentUserName : BehaviorSubject<any> = new BehaviorSubject(null);
@@ -21,7 +21,7 @@ export class AdminloginService {
   }
 
   registerUser(user:user){
-      return this.http.post(`${this.apiUrl}/Register`,user,{responseType:'json'});
+      return this.http.post(`${this.apiUrl}/AdminUser/Register`,user,{responseType:'json'});
   }
 
   GetUserById(id: number): Observable<user[]> {
@@ -34,7 +34,8 @@ export class AdminloginService {
   }
 
   loginUser(loginInfo:Array<string>){
-    return this.http.post(`${this.apiUrl}/LoginUser`,{
+    console.log(this.apiUrl);
+    return this.http.post(`${this.apiUrl}/Login`,{
       EmailAddress : loginInfo[0],
       Password : loginInfo[1]
     },{responseType:'json'});
@@ -56,6 +57,7 @@ export class AdminloginService {
     return localStorage.getItem("access_Token");
   }
   setToken(token:string){
+    localStorage.removeItem("access_token");
     localStorage.setItem("access_Token",token);
   }
 
@@ -70,17 +72,21 @@ export class AdminloginService {
   public getCurrentUser(){
     return this.currentUser.asObservable();
   }
+  
   public setCurrentUser(userDetail:any){
     return this.currentUser.next(userDetail);
-  }
+  } 
+
   decodedToken(){
     const token = this.getToken();
     return this.jwthelperService.decodeToken(token);
   }
+                                                 
   getUserFullName(){
     if(this.userPayLoad)
       return this.userPayLoad.fullName;
   }
+
   getUserDetail(){
     if(this.userPayLoad)
       return this.userPayLoad;

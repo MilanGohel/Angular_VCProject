@@ -28,6 +28,7 @@ export class UserComponent implements OnInit {
       if(data.result == 1)
       {
         this.userList = data.data;
+        console.log(this.userList);
       }
       else
       {
@@ -36,8 +37,13 @@ export class UserComponent implements OnInit {
     },err=>this.toast.error({detail:"ERROR",summary:err.error.message,duration:3000}));
   }
 
+  OpenRemoveUserModal(id: any){
+    this.deleteModal.show();
+    this.userId = id;
+  }
   
   CloseRemoveMissionModal(){
+    console.log("close");
     this.deleteModal.hide();
   }
   DeleteUser(){

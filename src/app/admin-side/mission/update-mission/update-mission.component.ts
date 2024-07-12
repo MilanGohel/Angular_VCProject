@@ -162,6 +162,7 @@ export class UpdateMissionComponent implements OnInit {
   get missionThemeId() { return this.editMissionForm.get('missionThemeId') as FormControl; }
   get missionSkillId() { return this.editMissionForm.get('missionSkillId') as FormControl; }
   get missionImages() { return this.editMissionForm.get('missionImages') as FormControl; }
+  // Also added totalSheets get method which was missing
   get totalSheets() {return this.totalSheets.get('totalSheets') as FormControl;} 
 
   OnSelectedImage(event:any){

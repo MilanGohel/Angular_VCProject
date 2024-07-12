@@ -17,8 +17,8 @@ export class AdminsideServiceService {
     public router: Router
   ) {}
   // apiUrl:string='http://localhost:63943/api';
-  apiUrl: string = 'http://localhost:56577/api';
-  imageUrl: string = 'http://localhost:56577';
+  apiUrl: string = 'http://localhost:5275/api';
+  imageUrl: string = 'http://localhost:5275';
 
   //User
   UserList(): Observable<any[]> {
@@ -26,7 +26,7 @@ export class AdminsideServiceService {
   }
   DeleteUser(userId: any) {
     return this.http.delete(
-      `${this.apiUrl}/AdminUser/DeleteUserAndUserDetail/${userId}`
+      `${this.apiUrl}/AdminUser/DeleteUser/${userId}`
     );
   }
 

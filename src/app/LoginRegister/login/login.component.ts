@@ -48,13 +48,13 @@ export class LoginComponent implements OnInit {
               this.service.setToken(res.data.data);
               let tokenpayload = this.service.decodedToken();
               this.service.setCurrentUser(tokenpayload);
-
+              console.log(tokenpayload["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]);
               this.toast.success({detail:"SUCCESS",summary:res.data.message,duration:3000});
-              if(tokenpayload.userType == 'admin')
+              if(tokenpayload["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"] === 'admin')
               {
                 this.router.navigate(['admin/dashboard']);
               }
-              else
+              else if(tokenpayload["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"] === 'user')
               {
                 this.router.navigate(['/home']);
               }

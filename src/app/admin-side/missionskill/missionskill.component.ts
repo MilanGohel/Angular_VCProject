@@ -37,7 +37,10 @@ export class MissionskillComponent implements OnInit {
     },err => this.toast.error({detail:"ERROR",summary:err.message,duration:3000}));
   }
 
- 
+  OpenDeleteSkillModal(id: any){
+    this.deleteSkillmodal.show();
+    this.skillId = id;
+  }
   CloseDeleteSkillModal()
   {
     this.deleteSkillmodal.hide();
@@ -58,4 +61,5 @@ export class MissionskillComponent implements OnInit {
       }
     },err => this.toast.error({detail:"ERROR",summary:err.message,duration:3000}));
   }
+  
 }

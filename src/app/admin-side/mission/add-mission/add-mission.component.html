@@ -10,6 +10,7 @@
             <div class="card-body">
               <form [formGroup]="addMissionForm">
                 <div>
+                  <!-- TASK:5 Added Mission Title & Mission theme -->
                   <div class="row">
                     <div class="col-sm-6">
                       <label class="col-form-label">Mission Title</label>
@@ -17,7 +18,17 @@
                       <span class="text-danger" *ngIf="missionTitle.invalid && (missionTitle.touched || formValid)">
                         Please Enter Mission Title
                       </span>
+                      
                     </div>
+                    <div class="col-sm-6">
+                      <label class="col-form-label">Mission Theme</label>
+                      <select class="form-select" formControlName="missionThemeId">
+                        <option *ngFor="let item of missionThemeList" value="{{item.value}}">{{item.text}}</option>
+                      </select>
+                      <span class="text-danger" *ngIf="missionThemeId.invalid && (missionThemeId.touched || formValid)">
+                        Please Select Mission Theme
+                      </span>
+                      </div>
                    </div>
                   <div class="row">
                     <div class="col-sm-6">

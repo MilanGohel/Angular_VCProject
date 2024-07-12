@@ -10,7 +10,7 @@
           <div class="card-body">
             <form [formGroup]="editMissionForm">
               <div>
-                <!-- TASK:5 Added Mission Title and Total Sheets -->
+                <!-- TASK:6 Added Mission Title and Total Sheets -->
                 <div class="row">
                   <div class="col-sm-6">
                     <label class="col-form-label">Mission Title</label>
@@ -22,9 +22,7 @@
                   <div class="col-sm-6">
                     <label class="col-form-label">Total Sheets</label>
                     <input type="number" class="form-control" formControlName="totalSheets" placeholder="Enter number of total sheets">
-                    <span class="text-danger" *ngIf="totalSheets.invalid && (totalSheets.touched || formValid)">
-                      Please Enter Mission Title
-                    </span>
+                    
                   </div>
 
                 </div>
@@ -68,7 +66,11 @@
                         Please Enter Mission Description
                       </span>
                     </div>
-            
+                    <!-- Removed TotalSheets Field From edit mission -->
+                    <div class="col-sm-6">
+                      <label class="col-form-label">Total seats</label>
+                      <input type="number" class="form-control" placeholder="Enter total seets" formControlName="totalSheets">
+                    </div>
                    </div>
                    <div class="row">
                     <div class="col-sm-6">

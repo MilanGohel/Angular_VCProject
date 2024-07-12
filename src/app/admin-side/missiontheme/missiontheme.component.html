@@ -30,10 +30,10 @@
                 <tr *ngFor="let item of result" style="text-align: left;">
                  <td>{{item.themeName}}</td>
                  <td style="text-align: right;color:#14c506;" [ngStyle]="item.status == 'active' ? {'color': '#14c506'} : {'color': '#ff0000'}">{{item.status == 'active' ? 'Active' : 'In-Active'}}</td>
-                <!-- Added edit and delete buttons for mission theme -->
+                <!--TASK:10 Added edit and delete buttons for mission theme -->
                   <td style="text-align: right;">
-                    <button class="btnedit btn btn-success" (click)="CloseRemoveMissionThemeModal()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </button>
-                    <button  class="btndelete btn btn-success" (click)="DeleteMissionTheme()"><i class="fa fa-trash-o" aria-hidden="true"></i> </button>
+                    <button class="btnedit btn btn-success" routerLink="../updateMissionsSkill/{{item.id}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </button>
+                    <button  class="btndelete btn btn-danger  " (click)="DeleteMissionTheme()"><i class="fa fa-trash-o" aria-hidden="true"></i> </button>
                  </td>
         
                </tr>

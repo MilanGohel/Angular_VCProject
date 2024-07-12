@@ -12,7 +12,7 @@ export class UserTypeGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot): boolean{
     const expectedUserType = route.data['expectedUserType'];
     const decodeToken = this.service.decodedToken();
-      if(this.service.isLoggedIn() && decodeToken.userType !== expectedUserType)
+      if(this.service.isLoggedIn() && decodeToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"] !== expectedUserType)
       {
         this.toastr.error({detail:"ERROR",summary:'You Don`t have admin rights',duration:3000});
         this.router.navigate(['admin']);
